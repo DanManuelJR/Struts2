@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- 
+  - This file is included by the struts.xml file as an example
+  - of how to break up the configuration file into multiple files.
+-->
+<struts>
+    <package name="example" namespace="/example" extends="struts-default">
+
+        <default-action-ref name="HelloWorld" />
+
+        <action name="HelloWorld" class="sample.example.HelloWorld">
+            <result>/WEB-INF/example/HelloWorld.jsp</result>
+        </action>
+
+        <action name="Login_*" method="{1}" class="sample.example.Login">
+            <result name="input">/WEB-INF/example/Login.jsp</result>
+            <result type="redirectAction">Menu</result>
+        </action>
+
+        <action name="*" class="sample.example.ExampleSupport">
+            <result>/WEB-INF/example/{1}.jsp</result>
+        </action>
+        <action name="Home" class="sample.example.Home">
+            <result>/WEB-INF/example/Home.jsp</result>
+        </action>
+        <action name="LoginPage" class="sample.example.LoginPage">
+            <result>/WEB-INF/example/LoginPage.jsp</result>
+            <result name="validated">/WEB-INF/example/Profile.jsp</result>
+            <!-- <result name="regular">/WEB-INF/example/regular.jsp</result>
+            <result name="admin">/WEB-INF/example/admin.jsp</result>
+            <result name="security">/WEB-INF/example/security.jsp</result> -->
+            </action>
+        <action name="Contact" class="sample.example.Contact">
+            <result>/WEB-INF/example/Contact.jsp</result>
+        </action>
+        <action name="About" class="sample.example.About">
+            <result>/WEB-INF/example/About.jsp</result>
+        </action>
+        <action name="Terms" class="sample.example.Terms">
+            <result>/WEB-INF/example/Terms.jsp</result>
+        </action>
+        <action name="Join" class="sample.example.Join">
+            <result>/WEB-INF/example/Join.jsp</result>
+        </action>
+        
+        <!-- Add additional "example" package actions here. -->
+        
+    </package>
+</struts>
